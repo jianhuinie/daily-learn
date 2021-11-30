@@ -24,3 +24,19 @@ function _setInterval(fn, delay) {
 
     setTimeout(_interval, delay);
 }
+
+
+function mergeArr(arr1, arr2) {
+    const newArr = [];
+    while(arr1.length && arr2.length) {
+        if (arr1[0] < arr2[0]) {
+            newArr.push(arr1[0]);
+            arr1.splice(0, 1);
+        } else {
+            newArr.push(arr2[0]);
+            arr2.splice(0, 1);
+        }
+    }
+    return newArr.concat(arr1, arr2);
+}
+console.log(mergeArr([1, 1, 2, 3], [2, 2, 3, 4, 5]));
